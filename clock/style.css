@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+body {
+  background-color: #010513;
+  color: white;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+}
+
+#time {
+    font-size: 50px;
+    margin-top: 230px;
+    font-family: "Michroma", sans-serif;
+}
+
+#date {
+    text-align: center;
+    font-size: x-large;
+    font-family: "Segoe UI", sans-serif;
+    margin-bottom: 250px;
+}
+
+#buttons {
+    font-family: Arial, Helvetica, sans-serif;
+}
