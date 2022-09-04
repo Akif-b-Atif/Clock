@@ -31,17 +31,15 @@ const months = {
 
 const refresher = setInterval(() => {
   const CurrentTime = new Date();
+  const min = zeroPad(CurrentTime.getMinutes());
+  const sec = zeroPad(CurrentTime.getSeconds());
   if (hour24Format.checked) {
     const hour = zeroPad(CurrentTime.getHours());
-    const min = zeroPad(CurrentTime.getMinutes());
-    const sec = zeroPad(CurrentTime.getSeconds());
     displayTime.textContent = `${hour}:${min}:${sec}`;
   } else {
     const hour = zeroPad(hour12(CurrentTime.getHours()));
-    const min = zeroPad(CurrentTime.getMinutes());
-    const sec = zeroPad(CurrentTime.getSeconds());
-    const meridean = ampm(CurrentTime.getHours());
-    displayTime.textContent = `${hour}:${min}:${sec} ${meridean}`;
+    const ampm = meridean(CurrentTime.getHours());
+    displayTime.textContent = `${hour}:${min}:${sec} ${ampm}`;
   }
 
   const date = CurrentTime.getDate();
@@ -55,9 +53,9 @@ const refresher = setInterval(() => {
   } else {
     displayDate.textContent = dateWrittenFormatter(date, month, year, day);
   }
-}, 500);
+}, 250);
 
-const zeroPad = (number)=> {
+const zeroPad = (number) => {
   if (number < 10) return `0${number}`;
   return number;
 };
@@ -65,7 +63,7 @@ const hour12 = (hour) => {
   if (hour > 12) return hour - 12;
   else return hour;
 };
-const ampm = (hour) => {
+const meridean = (hour) => {
   if (hour > 12) return "PM";
   else return "AM";
 };
