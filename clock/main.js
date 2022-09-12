@@ -6,27 +6,27 @@ const dateDMYformat = document.getElementById("date-format-dd-mm-yy");
 const dateMDYformat = document.getElementById("date-format-mm-dd-yy");
 const dateWrittenFormat = document.getElementById("date-format-written");
 const days = {
-  0: "Sunday",
-  1: "Monday",
-  2: "Tuesday",
-  3: "Wednesday",
-  4: "Thursday",
-  5: "Friday",
-  6: "Saturday",
+  1: "Sunday",
+  2: "Monday",
+  3: "Tuesday",
+  4: "Wednesday",
+  5: "Thursday",
+  6: "Friday",
+  7: "Saturday",
 };
 const months = {
-  0: "January",
-  1: "February",
-  2: "March",
-  3: "April",
-  4: "May",
-  5: "June",
-  6: "July",
-  7: "August",
-  8: "September",
-  9: "October",
-  10: "November",
-  11: "December",
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
 };
 
 const refresher = setInterval(() => {
@@ -43,9 +43,9 @@ const refresher = setInterval(() => {
   }
 
   const date = CurrentTime.getDate();
-  const month = CurrentTime.getMonth();
+  const month = CurrentTime.getMonth() + 1;
   const year = CurrentTime.getFullYear();
-  const day = CurrentTime.getDay();
+  const day = CurrentTime.getDay() + 1;
   if (dateDMYformat.checked) {
     displayDate.textContent = dateDMYformatter(date, month, year, day);
   } else if (dateMDYformat.checked) {
@@ -81,3 +81,4 @@ const dateDMYformatter = (date, month, year, day) => {
 const dateMDYformatter = (date, month, year, day) => {
   return `${month}-${date}-${year} | ${days[day]}`;
 };
+
